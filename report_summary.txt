@@ -1,0 +1,8 @@
+Hostnames: lvps178-77-78-196.dedicated.hosteurope.de
+City: Strasbourg
+Country: France
+Organization: Host Europe GmbH
+Number of vulnerabilities: 23
+Number of open ports: 6
+Vulnerabilities: CVE-2020-1968    CVE-2018-5407    CVE-2018-0737    CVE-2022-2068    CVE-2019-1559    CVE-2017-3738    CVE-2020-1971    CVE-2019-1563    CVE-2017-3736    CVE-2019-1552    CVE-2022-1292    CVE-2021-4160    CVE-2019-1547    CVE-2021-3712    CVE-2022-0778    CVE-2019-1551    CVE-2018-0732    CVE-2017-3737    CVE-2018-0734    CVE-2017-3735    CVE-2018-0739    CVE-2021-23840    CVE-2021-23841
+Ports: 8080    443    37215    50000    8888    80
