@@ -4,12 +4,17 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [scripts]
-start = "python ./index.py"
+start = "python ./src"
 
 [dev-packages]
+autopep8 = "*"
 
 [packages]
 shodan = "*"
+requests = "*"
+fnc = "*"
+reportlab = "*"
+python-nmap = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"
