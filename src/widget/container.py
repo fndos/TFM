@@ -3,9 +3,9 @@ from common.constants import *
 
 
 class ContainerWidget:
-    def __init__(self, master, label, children=False):
+    def __init__(self, master, title, children=False):
         labelframe = LabelFrame(
-            master, text=label, borderwidth=DEFAULT_BORDERWIDTH)
+            master, text=title, borderwidth=DEFAULT_BORDERWIDTH)
         labelframe.pack(fill=BOTH, expand=True,
                         padx=CONTAINER_PADX, pady=CONTAINER_PADY)
         if (children):

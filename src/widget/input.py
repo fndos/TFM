@@ -3,10 +3,10 @@ from common.constants import *
 
 
 class InputWidget:
-    def __init__(self, master, label):
+    def __init__(self, master, title):
         frame = Frame(master,  borderwidth=FRAME_BORDERWIDTH)
         frame.pack(fill=BOTH, expand=True)
-        label = Label(frame, text=label, anchor=W, width=LABEL_WIDTH)
+        label = Label(frame, text=title, anchor=W, width=LABEL_WIDTH)
         label.pack(fill=BOTH, side=LEFT, padx=LABEL_PADX)
         entry = Entry(frame)
         entry.pack(side=LEFT)
