@@ -40,7 +40,7 @@ class GenerateDocument:
         self.cursor['x'] = 2 * cm
         self.cursor['y'] = 26 * cm
 
-    def drawParagraph(self, text):
+    def drawparagraph(self, text):
         paragraph = Paragraph(text)
         paragraph.wrapOn(self.canvas, width - 5 * cm, height)
         paragraph.drawOn(self.canvas, self.cursor['x'], self.cursor['y'])
@@ -49,11 +49,11 @@ class GenerateDocument:
 
     def draw(self, value):
         if (isinstance(value, bool)):
-            self.drawParagraph("Si" if value else "No")
+            self.drawparagraph("Si" if value else "No")
         elif (isinstance(value, int) or isinstance(value, float)):
-            self.drawParagraph(str(value))
+            self.drawparagraph(str(value))
         elif (isinstance(value, str)):
-            self.drawParagraph(value)
+            self.drawparagraph(value)
         elif (isinstance(value, list)):
             for i, v in enumerate(value):
                 self.draw(v)

@@ -11,7 +11,7 @@ class TableWidget:
 
         tree = ttk.Treeview(frame, columns=headers, show='headings')
         [tree.heading(header, text=header) for header in headers]
-        tree.bind('<<TreeviewSelect>>', self.__item_selected)
+        tree.bind('<<TreeviewSelect>>', self.item_selected)
         tree.pack(side=LEFT)
 
         scrollbar = ttk.Scrollbar(frame, orient=VERTICAL, command=tree.yview)
@@ -28,8 +28,8 @@ class TableWidget:
     def destroy(self):
         self.tree.delete(*self.tree.get_children())
 
-    def __item_selected(self, event):
+    def item_selected(self, event):
         for selected_item in self.tree.selection():
             item = self.tree.item(selected_item)
             record = [str(value) for value in item['values']]
-            showinfo(title='Information', message=','.join(record))
+            #showinfo(title='Information', message=','.join(record))
