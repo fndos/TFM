@@ -14,15 +14,18 @@ def get_summary_payload(raw):
     for match in matches:
         vulns = fnc.get('vulns', match) or []
         for vuln in vulns:
-            data.append(
-                {'CVE-ID': vuln, **vulns[vuln]})
+            data.append(vuln)
+    unique_ports = list(set(ports))
+    unique_vulns = list(set(vulns))
     return {
         'Organization': org,
         'Hostname': hostnames,
         'City': city,
         'Country': country_name,
-        'Open ports': list(set(ports)),
-        'Vulnerabilities': list({x['CVE-ID']: x for x in data}.values())
+        'Total open ports': len(unique_ports),
+        'Open ports': unique_ports,
+        'Total vulnerabilities': len(unique_vulns),
+        'Vulnerabilities': unique_vulns,
     }
 
 

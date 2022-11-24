@@ -52,6 +52,10 @@ class App:
 
     def run_scan(self):
         shodan_engine = self.shodan_engine
+        if (self.filter_input.get_entry() == MOCK_CIDR_NETWORK):
+            shodan_engine.set_mock(True)
+        else:
+            shodan_engine.set_mock(False)
         self.query = shodan_engine.build_query(
             self.search_input.get_entry(), self.filter_input.get_entry())
         raw = shodan_engine.search(self.query)

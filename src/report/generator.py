@@ -55,19 +55,15 @@ class GenerateDocument:
         elif (isinstance(value, str)):
             self.drawparagraph(value)
         elif (isinstance(value, list)):
-            for i, v in enumerate(value):
-                self.draw(v)
-                # if i < len(value) - 1:
-                #     print("near last list element")
-                #     self.movedown()
-        elif (isinstance(value, dict)):
-            for i, (k, v) in enumerate(value.items()):
-                self.draw(k)
-                # self.movedown()
-                self.draw(v)
-                # if i < len(value) - 1:
-                #     print("near last dict element")
-                #     self.movedown()
+            if ("CVE" in value[0]):
+                _value = []
+                for cve in value:
+                    _value.append(
+                        f'<a href=https://nvd.nist.gov/vuln/detail/{cve}>{cve}</a>')
+                self.movedown(1)
+                self.drawparagraph(','.join(_value))
+            else:
+                self.drawparagraph(','.join(value))
 
     def generate(self):
         # * add document title

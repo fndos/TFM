@@ -1,7 +1,7 @@
 import os
 import shodan
 import json
-from time import time
+from time import time, sleep
 from datetime import datetime
 from tkinter.messagebox import showerror
 import fnc
@@ -17,8 +17,21 @@ class ShodanEngine:
         self.last_total = ''
         self.last_query = ''
         self.last_response = None
+        self.isMock = False
 
     def search(self, query):
+        if self.isMock:
+            response = None
+            # Opening JSON file
+            with open('data/mock_response.json') as json_file:
+                response = json.load(json_file)
+            self.last_time = 3.61
+            self.last_query = query
+            self.last_total = fnc.get('total', response)
+            self.last_response = response
+            self.has_failed = False
+            sleep(2)
+            return response
         try:
             start_time = time()
             response = self.api.search(query)
@@ -38,3 +51,6 @@ class ShodanEngine:
 
     def build_query(self, search, filter):
         return f'{search} {"net:" + filter if filter else ""}'
+
+    def set_mock(self, value):
+        self.isMock = value
