@@ -23,7 +23,7 @@ class ShodanEngine:
         if self.isMock:
             response = None
             # Opening JSON file
-            with open('data/mock_response.json') as json_file:
+            with open('resources/mock_response.json') as json_file:
                 response = json.load(json_file)
             self.last_time = 3.61
             self.last_query = query
